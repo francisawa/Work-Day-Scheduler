@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     var arr = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
     function createTimeBlocks() {
-        for (var i = 0; i< 9; i++){
+        for (var i = 0; i< arr.length; i++){
             var timeBlock = $("<div>")
             timeBlock.addClass("row timeBlock")
             timeBlock.attr("id", arr[i])
@@ -66,10 +66,21 @@ $(document).ready(function(){
     setInterval(timeUpdate, 60000)
 
     $(".saveBtn").on("click", function(){
-        var text = $(this).siblings(".text").val()
-        var time = $(this).siblings(".hour").text()
+        // var text = $(this).siblings(".text").val()
+        // console.log(text)
+        // var time = $(this).siblings(".hour").text()
+        // console.log(time)
 
-        localStorage.setItem(time, JSON.stringify(text))
+        //localStorage.setItem(time, JSON.stringify(text))
+        localStorage.setItem("9AM", JSON.stringify($("#9AM .text").val()))
+        localStorage.setItem("10AM", JSON.stringify($("#10AM .text").val()))
+        localStorage.setItem("11AM", JSON.stringify($("#11AM .text").val()))
+        localStorage.setItem("12PM", JSON.stringify($("#12PM .text").val()))
+        localStorage.setItem("1PM", JSON.stringify($("#1PM .text").val()))
+        localStorage.setItem("2PM", JSON.stringify($("#2PM .text").val()))
+        localStorage.setItem("3PM", JSON.stringify($("#3PM .text").val()))
+        localStorage.setItem("4PM", JSON.stringify($("#4PM .text").val()))
+        localStorage.setItem("5PM", JSON.stringify($("#5PM .text").val()))
     })
 
     // $(".timeBlock").each(function(){
@@ -80,12 +91,12 @@ $(document).ready(function(){
     $("#9AM .text").val(JSON.parse(localStorage.getItem("9AM")))
     $("#10AM .text").val(JSON.parse(localStorage.getItem("10AM")))
     $("#11AM .text").val(JSON.parse(localStorage.getItem("11AM")))
-    $("#12AM .text").val(JSON.parse(localStorage.getItem("12PM")))
-    $("#1AM .text").val(JSON.parse(localStorage.getItem("1PM")))
-    $("#2AM .text").val(JSON.parse(localStorage.getItem("2PM")))
-    $("#3AM .text").val(JSON.parse(localStorage.getItem("3PM")))
-    $("#4AM .text").val(JSON.parse(localStorage.getItem("4PM")))
-    $("#5AM .text").val(JSON.parse(localStorage.getItem("5PM")))
+    $("#12PM .text").val(JSON.parse(localStorage.getItem("12PM")))
+    $("#1PM .text").val(JSON.parse(localStorage.getItem("1PM")))
+    $("#2PM .text").val(JSON.parse(localStorage.getItem("2PM")))
+    $("#3PM .text").val(JSON.parse(localStorage.getItem("3PM")))
+    $("#4PM .text").val(JSON.parse(localStorage.getItem("4PM")))
+    $("#5PM .text").val(JSON.parse(localStorage.getItem("5PM")))
 
 
 })
